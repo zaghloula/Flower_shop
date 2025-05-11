@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+:root{
+    --main-color: #700a4c;
+    --second-color:  #d11fa4;
+    --text-color: #8a1a70;
+   
+  }
+body{
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+    background-image: url(flower.jpg);
+    
+  
+    height: 100px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+   
+  
+    
+ 
+    
+    }
+    
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+        scroll-behavior: smooth;
+        list-style: none;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    
+    form{
+        position: relative;
+        top: 10px;
+        left: 500px;
+        width: 510px;
+        height: 1100px;
+        border: 3px solid var(--main-color);
+        padding: 40px;
+      background-color: #ccc;
+        box-shadow: 0 0 200px black;
+        border-radius: 25px;
+    }
+    
+    h2 {
+        position: relative;
+        top: -25px;
+        right: 9px;
+     font-size: 45px;
+    color: var(--main-color);
+     text-align: center;
+     text-shadow: 2px 2px black;
+    }
+    
+    input{
+        position: relative;
+        top: -45px;
+        display: block;
+        border: 2px solid #ccc;
+        width: 95%;
+        padding: 10px;
+        margin: 10px auto;
+        border-radius: 10px;
+    }
+    
+    label{
+        position: relative;
+        top: -45px;
+        color: var(--main-color);
+        font-size: 18px;
+        padding: 10px;
+        font-weight: bolder;
+        text-shadow: 1px 1px black;
+        }
+    
+    button{
+        position: relative;
+        top: -45px;
+        float: left;
+        background: var(--main-color);
+        padding: 10px 45px;
+        color: #fff;
+        border-radius: 15px;
+        margin-right: 3px;
+        margin-top: -3px;
+        border: none;
+        box-shadow: 1px 1px black;
+       
+        
+    }
+    button:hover{
+        opacity: .7;
+    }
+    
+    
+    h1{
+        text-align: center;
+        color: #fff;
+    }
+    
+    h3{
+        float: left;
+        margin-right: 40px;
+        margin-top: 1px;
+    
+    }
+    header{ /*7eta ely foo2*/
+        position: fixed;
+        width: 100%;
+        top: 10px;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: clear;
+        padding: 15px 100px;
+      }
+    .logo {
+        font-size: 1.8rem;
+        color:var(--main-color) ;
+        font-weight: bolder;
+        }
+    .error{
+    position: relative;
+    top: -40px;
+    background: #efefef;
+    color: rgb(201, 21, 21);
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+      
+
+    
