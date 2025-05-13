@@ -6,13 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='script.js'></script>
     <title>Flower</title>      
 </head>
 
 <body>
     <header>
-        <p class="logo">Floward<span></span></p>
+        <a href="#" class="logo">Floward<span>.</span></a>
 
          <nav class="navbar">
             <a href="#home" onclick="navigateTo('home')">home</a>
@@ -20,12 +19,9 @@
             <a href="gifts.html" onclick="navigateTo('gifts')">gifts</a>
             <a href="#about" onclick="navigateTo('about')">about</a>
             <a href="#contact" onclick="navigateTo('contact')">contact</a>
-            <a href="payment.html" onclick="navigateTo('order')">order</a>
             <a href="register_form.php">
                 <img src="images\user_1144760.png" alt="logo" width="25" height="25">
             </a>
-            <input type="text" id="search" placeholder="Search...">
-            <button type="button" id="search-button">Search</button>
             </div>
         </nav>
     </header>
@@ -161,11 +157,10 @@
               <br><br>
               <h2> Meet Our Team: </h2>
                 <pre><h3>
-                    Alaa Hassan Melook (ID: 2205214) - The visionary with a green thumb, Alaa brings innovative ideas to life in our floral designs.
-                    Nadine Rasmy (ID: 2205203) - With an eye for aesthetics, Nadine ensures every bouquet captures the essence of beauty.
-                    Yumna Medhat (ID: 2205231) - Our botany enthusiast, Yumna, selects the healthiest and most vibrant flowers for our collections.
-                    Mahmoud Amr (ID: 2205255) - The logistics wizard, Mahmoud coordinates the journey of our flowers from farm to your doorstep.
-                    Abdo Hisham (ID: 2205232) - Abdo's tech-savvy skills keep our website blooming and user-friendly for all our visitors.
+                    kerlous nasser shehata 
+                    Mohammed Elsharkawey 
+                    Mahmoud Amr 
+                    Abdo Hisham 
                 </h3>
                </pre></div><h1>
                 Together, we cultivate not just flowers, but also joy and connections. Each stem, petal, and leaf is handpicked with care to ensure that when you choose our flowers, you're not just picking a product, but a piece of our shared love for flora.
@@ -188,7 +183,7 @@
         <h1 class="heading"> <span> contact </span> us </h1>
 
         <div class="row">
-            <form action="contact.php" method="post">
+            <form id="contactForm" method="POST">
                 <input type="text" name="name" placeholder="name" class="box">
                 <input type="email" name="email" placeholder="email" class="box">
                 <input type="number" name="number" placeholder="number" class="box">
@@ -211,18 +206,18 @@
     <div class="box-container">
         <div class="box">
             <h3>Delivery locations</h3>
-            <a href="#">Alexandria</a>
-            <a href="#">Damanhour</a>
-            <a href="#">Cairo</a>
-            <a href="#">North Sinai</a>
+            <p>Alexandria</p>
+            <p>Damanhour</p>
+            <p>Cairo</p>
+            <p>North Sinai</p>
         </div>
 
         <div class="box">
             <h3>contact info</h3>
-            <a>+201096434798</a>
-            <a href="#">mahmoud.zaghloula8@gmail.com <br>
-                        abdohisham5@gmail.com</a>
+            <a href="tel:+1234567890">+1234567890</a>
+            <a  href="mailto:floward@example.com">floward@example.com</a>
         </div>
     </div>
    
+    <script src='script.js'></script>
 <!-------------------------------------------------------------------------------------------------->

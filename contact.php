@@ -3,28 +3,39 @@ include 'config.php';
 
 session_start();
 if ($conn->connect_error) {
-    die("Connection failed: ". $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Sanitize and validate input
-$name = htmlspecialchars($_POST['name']);
-$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-$number = htmlspecialchars($_POST['number']);
-$message = htmlspecialchars($_POST['message']);
+// Check if form was submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validate required fields
+    if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['message'])) {
+        die("Please fill in all required fields (name, email, message)");
+    }
 
-$name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
-$email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
-$number = isset($_POST['number']) ? htmlspecialchars($_POST['number']) : '';
-$message = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
+    // Sanitize and validate input
+    $name = htmlspecialchars(trim($_POST['name']));
+    $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+    $number = isset($_POST['number']) ? htmlspecialchars(trim($_POST['number'])) : '';
+    $message = htmlspecialchars(trim($_POST['message']));
 
+    if ($email === false) {
+        die("Invalid email address");
+    }
 
-$sql = "INSERT INTO contacts (name, email, number, message)
-VALUES ('$name', '$email', '$number', '$message')";
+    // Use prepared statement to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO contacts (name, email, number, message) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $email, $number, $message);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Message sent successfully!";
+    if ($stmt->execute()) {
+        echo "Message sent successfully!";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
 } else {
-    echo "Error: ". $sql. "<br>". $conn->error;
+    echo "Invalid request method";
 }
 
 $conn->close();
