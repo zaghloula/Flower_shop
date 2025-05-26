@@ -1,0 +1,32 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect index.html to index.php
+RewriteCond %{REQUEST_URI} ^/index\.html$ [NC]
+RewriteRule ^(.*)$ index.php [R=301,L]
+
+# Redirect root (/) to index.php
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ index.php [R=301,L]
+
+# Protect sensitive files (config.php, session_config.php, etc.)
+<FilesMatch "(config\.php|session_config\.php)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Ensure .php files are processed by PHP
+AddType application/x-httpd-php .php
+
+# Prevent access to .htaccess itself
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Optional: Force HTTPS (uncomment if using HTTPS in production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
